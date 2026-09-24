@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaming - Free Media</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --bg-soft: #0b1623;
+      --panel: #0f1d2d;
+      --panel-strong: #13263e;
+      --panel-alt: #101d2d;
+      --line: #24364a;
+      --line-bright: #39536f;
+      --text: #f5a66b;
+      --muted: #f0c09c;
+      --muted-soft: #d89a70;
+      --accent: #f29a59;
+      --accent-strong: #f07e3c;
+      --chip: #101d2d;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    body {
+      display: block;
+      padding: 0;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--bg-soft);
+      border: none;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 26px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.1rem;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 1px solid var(--line-bright);
+    }
+
+    .hero {
+      padding: 42px 26px 20px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+      font-weight: 900;
+      color: var(--text);
+    }
+
+    .subtitle {
+      margin: 18px auto 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.6;
+    }
+
+    .content {
+      padding: 28px 22px 28px;
+      background: var(--bg-soft);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 18px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      max-width: 1120px;
+      margin: 30px auto 0;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 18px 18px 16px;
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .card p,
+    .card li {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 1.15rem;
+    }
+
+    .card li + li {
+      margin-top: 8px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: var(--text);
+    }
+
+    .footer {
+      padding: 18px 26px 26px;
+      text-align: center;
+      color: var(--muted-soft);
+      border-top: 1px solid var(--line);
+      background: var(--panel-alt);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 880px) {
+      .content-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <a href="Something anyway.html" style="text-decoration: none; color: var(--text);">freemediaheckyeah</a>
+      </div>
+    </div>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <h1>Gaming</h1>
+        <p class="subtitle">Free gaming resources and emulation tools.</p>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="content-grid">
+        <section class="card">
+          <h2>Free Games</h2>
+          <p>Discover open-source and free-to-play games across various genres and platforms.</p>
+          <a class="back-link" href="Something anyway.html">← Back</a>
+        </section>
+
+        <section class="card">
+          <h2>Emulation</h2>
+          <p>Retro gaming through legitimate emulation tools and resources for classic systems.</p>
+        </section>
+
+        <section class="card">
+          <h2>Gaming Tools</h2>
+          <p>Modding, streaming, and game development tools for the gaming community.</p>
+        </section>
+
+        <section class="card">
+          <h2>CATEGORY 1</h2>
+          <p>Add your content here.</p>
+        </section>
+
+        <section class="card">
+          <h2>CATEGORY 2</h2>
+          <p>Add your content here.</p>
+        </section>
+
+        <section class="card">
+          <h2>CATEGORY 3</h2>
+          <p>Add your content here.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+    </footer>
+  </div>
+</body>
+</html>

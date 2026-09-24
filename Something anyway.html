@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiernan's Free Media Guide</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --bg-soft: #0b1623;
+      --panel: #0f1d2d;
+      --panel-strong: #13263e;
+      --panel-alt: #101d2d;
+      --line: #24364a;
+      --line-bright: #39536f;
+      --text: #f5a66b;
+      --muted: #f0c09c;
+      --muted-soft: #d89a70;
+      --accent: #f29a59;
+      --accent-strong: #f07e3c;
+      --chip: #101d2d;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    body {
+      display: block;
+      padding: 0;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--bg-soft);
+      border: none;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 26px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.1rem;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 1px solid var(--line-bright);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.92rem;
+    }
+
+    .nav a,
+    .chip,
+    .cta {
+      text-decoration: none;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      transition: none;
+    }
+
+    .nav a {
+      padding: 8px 12px;
+      background: var(--panel-alt);
+    }
+
+    .nav a:hover,
+    .chip:hover,
+    .cta:hover {
+      color: var(--text);
+      border-color: var(--line-bright);
+      background: var(--panel-strong);
+    }
+
+    .hero {
+      padding: 42px 26px 20px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+      font-weight: 900;
+      color: var(--text);
+    }
+
+    .subtitle {
+      margin: 18px auto 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.6;
+    }
+
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      font-weight: 700;
+      background: var(--panel-alt);
+      color: var(--text);
+    }
+
+    .cta.primary {
+      background: var(--accent);
+      border-color: var(--accent-strong);
+      color: #111111;
+    }
+
+    .browse {
+      padding: 22px 26px 18px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel-alt);
+    }
+
+    .browse-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 9px 12px;
+      background: var(--chip);
+      font-size: 0.84rem;
+      text-transform: lowercase;
+      color: var(--muted);
+    }
+
+    .content {
+      padding: 28px 22px 28px;
+      background: var(--bg-soft);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 18px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 18px 18px 16px;
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .card p,
+    .card li {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 1.15rem;
+    }
+
+    .card li + li {
+      margin-top: 8px;
+    }
+
+    .mini {
+      display: inline-block;
+      margin-top: 14px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .footer {
+      padding: 18px 26px 26px;
+      text-align: center;
+      color: var(--muted-soft);
+      border-top: 1px solid var(--line);
+      background: var(--panel-alt);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 880px) {
+      .content-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>WOW!! FREE STUFF</span>
+      </div>
+
+    </div>
+
+    <header class="hero" id="top">
+      <div class="hero-inner">
+        <h1>Free Stuff!!</h1>
+        <p class="subtitle">My collection of free resources to browse.</p>
+        
+      </div>
+    </header>
+
+    <div class="browse">
+      <div class="browse-row" aria-label="Browse categories">
+        <a class="chip" href="Video.html">video</a>
+        <a class="chip" href="Gaming.html">gaming</a>
+        <a class="chip" href="Music.html">music</a>
+        <a class="chip" href="Misc.html">misc</a>
+        <a class="chip" href="FYI.html">IMPORTANT - CLICK HERE</a>
+      </div>
+    </div>
+
+    <main class="content">
+      <div class="content-grid">
+        <section class="card" id="guide">
+          <h2>What is free media?</h2>
+          <p>Free media includes content, tools, and services that can be accessed without paywall.</p>
+          <a class="mini" href="#posts">Explore more →</a>
+        </section>
+
+        <section class="card" id="posts">
+          <h2>Popular categories</h2>
+          <ul>
+            <li>Streaming and Video</li>
+            <li>Music and Audio</li>
+            <li>Gaming and Emulation</li>
+          </ul>
+        </section>
+
+        <section class="card" id="contribute">
+          <h2>Good to know</h2>
+          <p>Look for Open Source projects, beware that clicking on anything that is typically behind a paywall and no longer is may have legal implications.
+            
+        </section>
+
+        <section class="card">
+          <h2>Music</h2>
+          <p>Listen to free albums, public-domain recordings, and community-curated playlists without subscriptions.</p>
+        </section>
+
+        <section class="card">
+          <h2>Movies &amp; shows</h2>
+          <p>Discover free streaming links, legal archives, and independent collections from around the web.</p>
+        </section>
+
+        <section class="card" id="discord">
+          <h2>Studying</h2>
+          <p>Pull together tutorials, educational libraries, and safe guides for self-learning and research.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+    </footer>
+  </div>
+</body>
+</html>
